@@ -1,0 +1,42 @@
+a) R(A,B,C,D,E)
+1st: D -> B violates BCNF
+D+ = {BD}
+D+ != {ABCDE} and D+ != {D}
+Now split R into R1(D,B) and R2(A,C,D,E)
+2nd: CE -> A violates BCNF
+CE+ = {ACE}
+CE+ != {ACDE} and CE+ != {CE}
+Now split R2 into R3(A,C,E) and R4(C,D,E)
+Can't find any X such that X != X+ and X+ != C
+Thus the BCNF is R1(D,B), R3(A,C,E), and R4(C,D,E)
+
+b) S(A,B,C,D,E)
+1st: A -> E violates BCNF
+A+ = {A, E}
+A+ != {ABCDE} and A+ != {A}
+Now split S into S1(A,E) and S2(ABCD)
+2nd: BC -> A violates BCNF
+BC+ = {ABC}
+BC+ != {ABCD} and BC+ != {BC}
+Now split S2 into S3(A,B,C) and S4(B,C,D)
+Can't find any X such that X != X+ and X+ != C
+Thus the BCNF is S1(A,E), S3(A,B,C), and S4(B,C,D)
+
+c) All subsets of {A,B,C,D} are closed
+A -> A
+B -> B
+C -> C
+D -> D
+Only trivial FDs.
+
+d) The only closed subsets of {A,B,C,D} are {} and {A,B,C,D}
+A -> B
+B -> C
+C -> D
+D -> A
+
+e) The only closed subsets of {A,B,C,D} are {}, {B,C} and {A,B,C,D}
+B -> C
+C -> B
+A -> BCD
+D -> ABC
